@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'T-Store',
-      theme: ThemeData(
+      theme: ThemeDat(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold( 
