@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'T-Store',
-      theme: ThemeDat(
-        primarySwatch: Colors.blue,
+      theme: ThemeData(
+              primarySwatch: Colors.blue,
       ),
       home: Scaffold( 
         appBar: AppBar(title: const Text("T-Store")),
