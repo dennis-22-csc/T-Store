@@ -39,10 +39,16 @@ class AirtimeConvertState extends State<AirtimeConvert> {
                   decoration: const InputDecoration(
                     hintText: "Sender's Phone Number",
                     suffixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.red,
+                        width: 2.0,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 16.0),
+
               Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
                 child: TextFormField(
@@ -50,22 +56,31 @@ class AirtimeConvertState extends State<AirtimeConvert> {
                   decoration: const InputDecoration(
                     hintText: "Confirm Sender's Phone Number",
                     suffixIcon: Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.red,
+                        width: 2.0,
+                      ),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 16.0),
               Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
-                child: TextFormField(
+              child: TextFormField(
                   controller: _otherAmountController,
                   decoration: const InputDecoration(
-                    labelText: "Enter other amount",
-                    hintText: "0",
+                    hintText: "Please enter amount",
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.red,
+                        width: 2.0,
+                      ),
+                    ),
                   ),
                   keyboardType: TextInputType.number,
                 ),
               ),
-              const SizedBox(height: 16.0),
               Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
                 child: ElevatedButton(
