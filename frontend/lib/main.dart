@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/airtime_convert_form.dart';
-import 'package:frontend/homepage.dart';
+//import 'package:frontend/homepage.dart';
 import 'package:device_preview/device_preview.dart';
 
 void main() {
@@ -20,9 +20,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
               primarySwatch: Colors.blue,
       ),
-      home: Scaffold( 
-        appBar: AppBar(title: const Text("T-Store")),
-        body: AirtimeConvert(key: UniqueKey())));
-
+      home: AirtimeConvert(key: UniqueKey()));
   }
 }
