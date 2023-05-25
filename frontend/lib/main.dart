@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/airtime_convert_form.dart';
 import 'package:frontend/homepage.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold( 
         appBar: AppBar(title: const Text("T-Store")),
-        body:const  MyHomePage()));
+        body: AirtimeConvert(key: UniqueKey())));
 
   }
 }
