@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/product_card.dart';
+import 'package:frontend/airtime_convert_form.dart';
 
 class MyHomePage extends StatelessWidget{
     const MyHomePage({super.key});
@@ -16,6 +17,52 @@ Widget build(BuildContext context) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: SizedBox(
+                height: 150, // set a fixed height for the container
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AirtimeConvert(key: UniqueKey())),
+                    );
+                  },
+                  child: card1,
+                ),
+              ),
+            ),
+            Expanded(
+              child: SizedBox(
+                height: 150, // set a fixed height for the container
+                child: GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Hi Chief!'),
+                          content: const Text('This service is not yet available.'),
+                          actions: [
+                            TextButton(
+                              child: const Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: card2,
+                ),
+              ),
+            ),
+          ],
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -42,31 +89,35 @@ Widget build(BuildContext context) {
                       },
                     );
                   },
-                  child: card1,
+                  child: card3,
                 ),
               ),
             ),
             Expanded(
               child: SizedBox(
                 height: 150, // set a fixed height for the container
-                child: card2,
-              ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: SizedBox(
-                height: 150, // set a fixed height for the container
-                child: card3,
-              ),
-            ),
-            Expanded(
-              child: SizedBox(
-                height: 150, // set a fixed height for the container
-                child: card4,
+                child: GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Hi Chief!'),
+                          content: const Text('This service is not yet available.'),
+                          actions: [
+                            TextButton(
+                              child: const Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: card4,
+                ),
               ),
             ),
           ],

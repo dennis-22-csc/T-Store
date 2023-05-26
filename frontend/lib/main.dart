@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/airtime_convert_form.dart';
-//import 'package:frontend/homepage.dart';
+import 'package:frontend/homepage.dart';
 import 'package:device_preview/device_preview.dart';
 
 void main() {
@@ -20,6 +19,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
               primarySwatch: Colors.blue,
       ),
-      home: AirtimeConvert(key: UniqueKey()));
+      home: const MyHomePage());
   }
 }
