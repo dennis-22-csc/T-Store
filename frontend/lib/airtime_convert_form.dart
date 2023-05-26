@@ -10,8 +10,12 @@ class AirtimeConvertState extends State<AirtimeConvert> {
   final _formKey = GlobalKey<FormState>();
   final _phoneNumberController = TextEditingController();
   final _confirmPhoneNumberController = TextEditingController();
-  final _otherAmountController = TextEditingController();
-
+  final _amountController = TextEditingController();
+  String _phoneNumber = 'N/A';
+  String _amount = '# 0.00';
+  String _transactionFee = 'N/A';
+  String _total = '# 0.00';
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +33,7 @@ class AirtimeConvertState extends State<AirtimeConvert> {
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -46,6 +51,11 @@ class AirtimeConvertState extends State<AirtimeConvert> {
                       ),
                     ),
                   ),
+                  onChanged: (value) {
+                      setState(() {
+                        _phoneNumber = value;
+                      });
+                  },
                 ),
               ),
 
@@ -62,13 +72,13 @@ class AirtimeConvertState extends State<AirtimeConvert> {
                         width: 2.0,
                       ),
                     ),
-                  ),
+                  ),  
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(bottom: 16.0),
               child: TextFormField(
-                  controller: _otherAmountController,
+                  controller: _amountController,
                   decoration: const InputDecoration(
                     hintText: "Amount",
                     border: OutlineInputBorder(
@@ -78,7 +88,13 @@ class AirtimeConvertState extends State<AirtimeConvert> {
                       ),
                     ),
                   ),
-                  keyboardType: TextInputType.number,
+                  onChanged: (value) {
+                    setState(() {
+                        _amount = '# $value';
+                        _transactionFee = '# ${getTransactionFee(double.parse(value))}';
+                        _total = '# ${getTotal(double.parse(value), getTransactionFee(double.parse(value)))}';
+                      });
+                  }, 
                 ),
               ),
               Container(
@@ -101,61 +117,53 @@ class AirtimeConvertState extends State<AirtimeConvert> {
                         const SizedBox(height: 16.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
+                          children: [
+                           const  Text(
                               'Amount',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                              '# 0.00',
-                            ),
+                            Text(_amount),
                           ],
                         ),
                         const SizedBox(height: 16.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               "Sender's Phone Number",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                              'N/A',
-                            ),
+                            Text(_phoneNumber),
                           ],
                         ),
                         const SizedBox(height: 16.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               'Transaction fee',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                              'N/A',
-                            ),
+                            Text(_transactionFee),
                           ],
                         ),
                         const SizedBox(height: 16.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
+                          children: [
+                            const Text(
                               'Total',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                              '# 0.00',
-                            ),
+                            Text(_total),
                           ],
                         ),
                       ],
@@ -178,5 +186,12 @@ class AirtimeConvertState extends State<AirtimeConvert> {
         ),
       ),
     );
+  }
+
+  double getTransactionFee(double amount){
+    return amount * (10/100);
+  }
+  double getTotal(double amount, double transactionFee){
+    return amount + transactionFee;
   }
 }
