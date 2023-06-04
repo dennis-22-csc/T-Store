@@ -30,7 +30,29 @@ migrate_working_dir/
 .packages
 .pub-cache/
 .pub/
+pubspec.lock
 /build/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/flutter_project.pbxproj
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/ephemeral
+**/ios/Flutter/flutter_plugins_registrant.h
+**/ios/Flutter/flutter_plugins_registrant.m
+**/android/.gradle/
+**/android/build/
+**/android/gradle/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/gradle.properties
+**/android/app/debug.keystore
+**/android/app/key.properties
+**/android/app/generated_plugin_registrant.java
+**/android/.idea/
+**/android/.cxx/
 
 # Symbolication related
 app.*.symbols
@@ -42,3 +64,18 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+*.iml
+.gradle/
+/local.properties
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/dictionaries
+/.idea/vcs.xml
+/.idea/jsLibraryMappings.xml
+
+# Visual Studio Code
+.vscode/

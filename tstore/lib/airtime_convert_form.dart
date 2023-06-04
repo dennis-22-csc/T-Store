@@ -45,7 +45,7 @@ class AirtimeConvertState extends State<AirtimeConvert> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('Airtime to Cash'),
+        title: const Text('MTN Airtime to Cash'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
